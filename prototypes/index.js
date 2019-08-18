@@ -24,11 +24,19 @@ const kittyPrompts = {
     
     // Return an array of just the names of kitties who are orange e.g.
     // ['Tiger', 'Snickers']
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+   
+    const result = kitties.reduce((acc, kitten) => {
+      if (kitten.color === 'orange') {
+        acc.push(kitten.name)
+
+      }
+      return acc
+    }, []);
+
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+     //I first tried to filter then to map, then a forEach. All that didn't work, I was giving up on reduce due to the fact I would always get an array of undeined items. After some research I found out where I need to push and when to return the acc, with that I was successful here using reduce!
   },
 
   sortByAge() {
@@ -38,7 +46,7 @@ const kittyPrompts = {
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Use of filter. Filter returens just the matching items. When filter finds matching item, return just the names of the kittens
   },
 
   growUp() {
