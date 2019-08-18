@@ -42,11 +42,12 @@ const kittyPrompts = {
   sortByAge() {
     // Sort the kitties by their age
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.sort((a,b) => b.age - a.age);
     return result;
 
     // Annotation:
-    // Use of filter. Filter returens just the matching items. When filter finds matching item, return just the names of the kittens
+    // reduce - using dot notation I was able to sort through the age of the kittens having the oldest first.
+   
   },
 
   growUp() {
@@ -63,8 +64,17 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.map( kitten => Object.assign({}, kitten, { age: kitten.age + 2 }) 
+    )
+    
+    // kitties.map( kitten => {
+    //   kitten = kitten.age + 2
+    // });
+    console.log(result)
     return result;
+
+    // Annotation:
+    // Started off with map() to loop through and create a new array then used assign() withtin map for each iteration to create a new obj with the updated age that is then pushed into the result array.
   }
 };
 
